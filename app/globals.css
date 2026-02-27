@@ -4,7 +4,45 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body { background: #fdf4ff; }
+html, body { background: #070b12; }
 
 .font-title { font-family: 'Pacifico', cursive; }
 .font-body { font-family: 'Nunito', sans-serif; }
+
+:root {
+  --forest-bg: #0a0f1a;
+  --forest-mid: #0d1f12;
+  --forest-accent: #1a2e1a;
+  --moss-green: #2d5a27;
+  --deep-purple: #1e0a3c;
+  --glow-green: #4ade80;
+  --glow-purple: #a855f7;
+  --fog-white: rgba(200, 220, 210, 0.08);
+}
+
+@keyframes fog-drift {
+  0% { transform: translateX(-10%) scaleX(1); opacity: 0.06; }
+  50% { transform: translateX(5%) scaleX(1.05); opacity: 0.12; }
+  100% { transform: translateX(-10%) scaleX(1); opacity: 0.06; }
+}
+@keyframes firefly {
+  0%, 100% { opacity: 0; transform: translate(0, 0); }
+  25% { opacity: 0.9; transform: translate(3px, -4px); }
+  50% { opacity: 0.4; transform: translate(-2px, -8px); }
+  75% { opacity: 1; transform: translate(4px, -3px); }
+}
+@keyframes glow-pulse {
+  0%, 100% { filter: drop-shadow(0 0 3px #4ade80) drop-shadow(0 0 8px #4ade8066); }
+  50% { filter: drop-shadow(0 0 6px #4ade80) drop-shadow(0 0 16px #4ade8088); }
+}
+@keyframes window-glow {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+.animate-fog { animation: fog-drift 8s ease-in-out infinite; }
+.animate-fog-slow { animation: fog-drift 12s ease-in-out infinite reverse; }
+.animate-firefly { animation: firefly 3s ease-in-out infinite; }
+.animate-firefly-2 { animation: firefly 4s ease-in-out infinite 1s; }
+.animate-firefly-3 { animation: firefly 3.5s ease-in-out infinite 2s; }
+.animate-glow { animation: glow-pulse 2s ease-in-out infinite; }
+.animate-window { animation: window-glow 3s ease-in-out infinite; }
